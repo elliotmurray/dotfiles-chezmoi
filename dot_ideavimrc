@@ -1,4 +1,6 @@
 set ideajoin
+set rnu
+set nu
 
 
 " Integrate with system clipboard
@@ -20,10 +22,10 @@ nmap <leader>b :action GotoDeclaration<CR>
 nmap <leader>e :action GotoNextError<CR>
 nmap <leader>E :action GotoPreviousError<CR>
 
-nmap <leader>gk :action ChangesView.ToggleCommitUi<CR>
+nmap <leader>gk :action CheckinProject<CR>
 nmap <leader>gp :action Vcs.Push<CR>
 nmap <leader>gu :action Vcs.UpdateProject<CR>
 nmap <leader>gb :action Git.Branches<CR>
 nmap <leader>gn :action Git.CreateNewBranch<CR>
 
-
+vmap <C-p> y'>p
