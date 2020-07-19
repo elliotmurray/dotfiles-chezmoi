@@ -1,7 +1,11 @@
 set ideajoin
 set rnu
 set nu
-
+set surround
+set easymotion
+set argtextobj
+set exchange
+set ReplaceWithRegister
 
 " Integrate with system clipboard
 set clipboard=unnamedplus,unnamed,ideaput
