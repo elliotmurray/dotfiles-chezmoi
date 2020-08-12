@@ -1,3 +1,5 @@
+let mapleader = " "
+
 set ideajoin
 set rnu
 set nu
@@ -9,8 +11,6 @@ set ReplaceWithRegister
 
 " Integrate with system clipboard
 set clipboard=unnamedplus,unnamed,ideaput
-
-let mapleader = " "
 
 imap ,. <Esc>
 vmap ,. <Esc>
@@ -32,4 +32,9 @@ nmap <leader>gu :action Vcs.UpdateProject<CR>
 nmap <leader>gb :action Git.Branches<CR>
 nmap <leader>gn :action Git.CreateNewBranch<CR>
 
+nmap <leader>o :action GotoFile<CR>
+
 vmap <C-p> y'>p
+
+set visualbell
+set noerrorbells
