@@ -8,6 +8,9 @@ set easymotion
 set argtextobj
 set exchange
 set ReplaceWithRegister
+set visualbell
+set noerrorbells
+set vim-textobj-entire
 
 " Integrate with system clipboard
 set clipboard=unnamedplus,unnamed,ideaput
