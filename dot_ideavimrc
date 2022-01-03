@@ -8,6 +8,9 @@ set easymotion
 set argtextobj
 set exchange
 set ReplaceWithRegister
+set highlightedyank
+set multiple-cursors
+set ReplaceWithRegister
 set visualbell
 set noerrorbells
 set vim-textobj-entire
@@ -15,8 +18,8 @@ set vim-textobj-entire
 " Integrate with system clipboard
 set clipboard=unnamedplus,unnamed,ideaput
 
-imap ,. <Esc>
-vmap ,. <Esc>
+imap jk <Esc>
+vmap jk <Esc>
 
 nmap <leader>h <c-w>h
 nmap <leader>l <c-w>l
@@ -34,10 +37,14 @@ nmap <leader>gp :action Vcs.Push<CR>
 nmap <leader>gu :action Vcs.UpdateProject<CR>
 nmap <leader>gb :action Git.Branches<CR>
 nmap <leader>gn :action Git.CreateNewBranch<CR>
+nmap <leader>s :action Tool_External Tools_Scrcpy<CR>
 
 nmap <leader>o :action GotoFile<CR>
 
 vmap <C-p> y'>p
+xnoremap gs y:%s/<C-r>0//g<Left><Left>
 
 set visualbell
 set noerrorbells
+
+
