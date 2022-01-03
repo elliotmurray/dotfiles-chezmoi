@@ -13,7 +13,8 @@ shift + alt - h : yabai -m window first --resize right:-200:0
 shift + alt - l : yabai -m window first --resize right:200:0
 
 shift + alt - return : yabai -m window --swap first
-shift + alt - e : yabai -m window --toggle float; yabai -m window --toggle topmost; yabai -m config window_opacity on;yabai -m window --grid 64:64:1:1:62:62 || yabai -m config window_opacity off
+# shift + alt - e : yabai -m window --toggle float; yabai -m window --toggle topmost; yabai -m config window_opacity on;yabai -m window --grid 64:64:1:1:62:62 || yabai -m config window_opacity off
+shift + alt - e : yabai -m window --toggle zoom-fullscreen
 
 shift + ctrl + alt - l : yabai -m window --space next; yabai -m space --focus next
 shift + ctrl + alt - h : yabai -m window --space prev; yabai -m space --focus prev
