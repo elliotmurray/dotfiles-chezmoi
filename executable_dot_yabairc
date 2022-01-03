@@ -11,6 +11,7 @@ yabai -m rule --add app!="^(Android Studio|Finder|Google Chrome|Firefox|Alfred|T
 yabai -m rule --add app=Firefox space=^web
 yabai -m rule --add app="Google Chrome" space=^web
 yabai -m rule --add app=Telegram space=^chat
+yabai -m rule --add app=Slack space=^chat
 yabai -m rule --add app="^Android Studio$" space=^android
 yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
 yabai -m rule --add app="Alfred" sticky=on layer=above manage=off
