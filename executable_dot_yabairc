@@ -16,7 +16,9 @@ yabai -m rule --add app="^Android Studio$" space=^android
 yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
 yabai -m rule --add app="Alfred" sticky=on layer=above manage=off
 
-yabai -m rule --add app="^Android Studio$" title!="^\S+\s\–\s\S+\s\[\S+\]$" layer=above manage=off
+#yabai -m rule --add app="^Android Studio$" title!="^\S+\s\–\s\S+\s\[\S+\]$" layer=above manage=off
+yabai -m rule --add app="^Android Studio" title="(.*\[(.*)\].*)|(.*\(\:.*\).*)" manage=on layer=below
+yabai -m rule --add app="^Android Studio" title!="(.*\[(.*)\].*)|(.*\(\:.*\).*)" manage=off layer=above
 
 
 # global settings
