@@ -6,7 +6,7 @@ yabai -m space 2 --label android || yabai -m space --create; yabai -m space 2 --
 yabai -m space 3 --label chat || yabai -m space --create; yabai -m space 3 --label chat
 yabai -m space 4 --label other || yabai -m space --create; yabai -m space 4 --label other
 
-yabai -m rule --add app!="^(Notification Centre|Android Studio|Finder|Google Chrome|Firefox|Alfred|Telegram|Slack)$" space=^other
+yabai -m rule --add app!="^(Notes|JetBrains Toolbox|Spotlight|Control Centre|Notification Centre|Android Studio|Finder|Google Chrome|Firefox|Alfred|Telegram|Slack)$" space=^other
 
 yabai -m rule --add app=Firefox space=^web
 yabai -m rule --add app="Google Chrome" space=^web
@@ -14,11 +14,14 @@ yabai -m rule --add app=Telegram space=^chat
 yabai -m rule --add app=Slack space=^chat
 yabai -m rule --add app="^Android Studio$" space=^android
 yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Notes$" sticky=on layer=above manage=off
 yabai -m rule --add app="Alfred" sticky=on layer=above manage=off
 
 #yabai -m rule --add app="^Android Studio$" title!="^\S+\s\–\s\S+\s\[\S+\]$" layer=above manage=off
 yabai -m rule --add app="^Android Studio" title="(.*\[(.*)\].*)|(.*\(\:.*\).*)" manage=on layer=below
 yabai -m rule --add app="^Android Studio" title!="(.*\[(.*)\].*)|(.*\(\:.*\).*)" manage=off layer=above
+
+yabai -m rule --add app="JetBrains Toolbox" manage=off layer=above
 
 
 # global settings
