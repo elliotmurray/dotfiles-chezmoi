@@ -18,7 +18,7 @@ yabai -m rule --add app="^Notes$" sticky=on layer=above manage=off
 yabai -m rule --add app="Alfred" sticky=on layer=above manage=off
 
 #yabai -m rule --add app="^Android Studio$" title!="^\S+\s\–\s\S+\s\[\S+\]$" layer=above manage=off
-yabai -m rule --add app="^Android Studio" title="(.*\[(.*)\].*)|(.*\(\:.*\).*)" manage=on layer=below
+yabai -m rule --add app="^Android Studio" title="(.*\[(.*)\].*)|(.*\(\:.*\).*)" manage=on layer=normal
 yabai -m rule --add app="^Android Studio" title!="(.*\[(.*)\].*)|(.*\(\:.*\).*)" manage=off layer=above
 
 yabai -m rule --add app="JetBrains Toolbox" manage=off layer=above
