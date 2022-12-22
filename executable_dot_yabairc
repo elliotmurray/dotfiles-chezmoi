@@ -6,28 +6,34 @@ yabai -m space 2 --label android || yabai -m space --create; yabai -m space 2 --
 yabai -m space 3 --label chat || yabai -m space --create; yabai -m space 3 --label chat
 yabai -m space 4 --label other || yabai -m space --create; yabai -m space 4 --label other
 
+yabai -m rule --add app=".*" sticky=on manage=off layer=above
 
-yabai -m rule --add app=Firefox space=^web
-yabai -m rule --add app="Google Chrome" space=^web
-yabai -m rule --add app="LiveLink Board" space=^android
-yabai -m rule --add app=Telegram space=^chat
-yabai -m rule --add app=Slack space=^chat
-yabai -m rule --add app="^Android Studio$" space=^android
-yabai -m rule --add app="^scrcpy$" space=^android
-yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Harvest$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Calendar$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Notes$" sticky=on manage=off topmost=on
-#yabai -m rule --add app="Alfred" sticky=on layer=above manage=off
+yabai -m rule --add app=Firefox space=^web manage=on sticky=off layer=normal
+yabai -m rule --add app="Google Chrome" space=^web manage=on sticky=off layer=normal
+yabai -m rule --add app="LiveLink Board" space=^android manage=on sticky=off layer=normal
+yabai -m rule --add app=Telegram space=^chat manage=on sticky=off layer=normal
+yabai -m rule --add app=Slack space=^chat manage=on sticky=off layer=normal
+yabai -m rule --add app="^scrcpy$" space=^android manage=on sticky=off layer=normal
+yabai -m rule --add app="^Android Studio" space=^android title=".*🦉.*" manage=on layer=normal sticky=off
+yabai -m rule --add app="^Android Studio" title!=".*🦉.*" manage=off layer=above sticky=off
+yabai -m rule --add app="Code" manage=on space=^android layer=normal sticky=off
 
-yabai -m rule --add app="^Android Studio$" title!="^\S+\s\–\s\S+\s\[\S+\]$" manage=off
-yabai -m rule --add app="^Android Studio" title="(.*\[(.*)\].*)|(.*\(\:.*\).*)" manage=on
-#yabai -m rule --add app="^Android Studio" title=".*🦆.*" manage=on layer=normal
-#yabai -m rule --add app="^Android Studio" title!=".*🦆.*" manage=off layer=above
+#yabai -m rule --add app="^Android Studio$" space=^android manage=on sticky=off layer=normal
+#yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
+#yabai -m rule --add app="^Harvest$" sticky=on layer=above manage=off
+#yabai -m rule --add app="^Calendar$" sticky=on layer=above manage=off
+
+#yabai -m rule --add app="^Notes$" sticky=on manage=off
+
+#yabai -m rule --add app="^Android Studio$" title!="^\S+\s\–\s\S+\s\[\S+\]$" manage=off
+#yabai -m rule --add app="^Android Studio" title="(.*\[(.*)\].*)|(.*\(\:.*\).*)" manage=on
 
 #yabai -m rule --add app="JetBrains Toolbox" manage=off layer=above
 
 #yabai -m rule --add app!="^(scrcpy|Screenshot|com.apple.PressAndHold|Harvest|Calendar|LiveLink Board|Notes|JetBrains Toolbox|Spotlight|Control Centre|Notification Centre|Android Studio|Finder|Google Chrome|Firefox|Alfred|Telegram|Slack)$" space=^other
+
+#yabai -m signal --add event=display_added action="yabai -m ~/.yabai/display_layout.sh $(yabai -m query --displays | .[] | select(.id == $YABAI_DISPLAY_ID) | .index)"
+#yabai -m signal --add event=display_added action="echo "$YABAI_DISPLAY_ID" ~/.yabai/test.txt"
 
 # global settings
 yabai -m config mouse_follows_focus          off
@@ -35,13 +41,14 @@ yabai -m config focus_follows_mouse          off
 yabai -m config window_origin_display        default
 yabai -m config window_placement             second_child
 yabai -m config window_topmost               off
-yabai -m config window_shadow                on
+yabai -m config window_shadow                off
 yabai -m config window_opacity               off
-yabai -m config window_opacity_duration      0.0
+yabai -m config window_opacity_duration      0.1
+yabai -m config window_border_blur           off
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.75
-yabai -m config window_border                off
-yabai -m config window_border_width          6
+yabai -m config window_border                on
+yabai -m config window_border_width          4
 yabai -m config active_window_border_color   0xff775759
 yabai -m config normal_window_border_color   0xff555555
 yabai -m config insert_feedback_color        0xffd75f5f
@@ -51,6 +58,7 @@ yabai -m config auto_balance                 off
 yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
+#yabai -m config window_animation_duration   0.05
 
 # general space settings
 yabai -m config layout                       bsp
@@ -60,6 +68,8 @@ yabai -m config left_padding                 12
 yabai -m config right_padding                12
 yabai -m config window_gap                   06
 
-yabai -m config debug_output on
+yabai -m config debug_output off
 
 echo "yabai configuration loaded.."
+
+
