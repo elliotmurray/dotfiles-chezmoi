@@ -18,6 +18,8 @@ shift + alt - e : yabai -m window --toggle zoom-fullscreen
 
 shift + ctrl + alt - l : yabai -m window --space next; yabai -m space --focus next
 shift + ctrl + alt - h : yabai -m window --space prev; yabai -m space --focus prev
+shift + ctrl + alt + cmd - j : yabai -m window --focus "$(yabai -m query --windows --space | jq -re "[sort_by(.id, .frame) | reverse | .[] | select(.role == \"AXWindow\" and .subrole == \"AXStandardWindow\") | .id] | nth(index($(yabai -m query --windows --window | jq -re ".id")) - 1)")"
+shift + ctrl + alt + cmd - k : yabai -m window --focus "$(yabai -m query --windows --space | jq -re "[sort_by(.id, .frame) | .[] | select(.role == \"AXWindow\" and .subrole == \"AXStandardWindow\") | .id] | nth(index($(yabai -m query --windows --window | jq -re ".id")) - 1)")"
 
 cmd - 1 : yabai -m space --focus 1
 cmd - 2 : yabai -m space --focus 2
@@ -33,5 +35,13 @@ cmd + alt + shift + ctrl - d : yabai -m space --focus 4
 
 shift + alt - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
-cmd + alt + shift + ctrl - e : open /System/Library/CoreServices/Finder.app
+cmd + alt + shift + ctrl - v : open /System/Library/CoreServices/Finder.app
 cmd + alt + shift + ctrl - c : open /Users/elliot/Applications/Chrome\ Apps.localized/Calendar.app
+
+#cmd + alt + shift + ctrl - t : yabai -m window --focus next || yabai -m window --focus first
+cmd + alt + shift + ctrl - q : ~/.yabai/move_to_space.sh android
+cmd + alt + shift + ctrl - w : ~/.yabai/move_to_space.sh chat
+cmd + alt + shift + ctrl - e : ~/.yabai/move_to_space.sh other
+cmd + alt + shift + ctrl - r : ~/.yabai/move_to_space.sh web
+cmd + alt + shift + ctrl - g : ~/.yabai/move_to_space.sh
+cmd + alt + shift + ctrl - t : ~/.yabai/float.sh
